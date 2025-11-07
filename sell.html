@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>بيع الخردة | ScrapCycle</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#f8fafc',
+            secondary: '#facc15',
+            accent: '#1e3a8a',
+            card: '#ffffff',
+            border: '#e2e8f0'
+          },
+          boxShadow: {
+            neonYellow: '0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #facc15',
+            neonBlue: '0 0 10px #1e3a8a, 0 0 20px #1e3a8a, 0 0 30px #1e3a8a'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 🌟 تأثير النيون عند التركيز */
+    input:focus, select:focus, textarea:focus {
+      box-shadow: 0 0 10px #facc15, 0 0 20px #facc15, 0 0 30px #facc15;
+      border-color: #facc15 !important;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.01);
+    }
+  </style>
+</head>
+
+<body class="bg-primary text-gray-900 min-h-screen flex flex-col">
+  <custom-navbar></custom-navbar>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-accent mb-2">🧾 أضف إعلان الخردة</h1>
+        <p class="text-gray-600">املأ التفاصيل، أضف الصور، ثم اضغط على "عرض للبيع" لنشر إعلانك.</p>
+      </div>
+
+      <div class="bg-card border border-border rounded-2xl p-6 shadow-sm">
+        <form id="listForm" class="space-y-6">
+
+          <!-- العنوان -->
+          <div>
+            <label for="title" class="block text-sm font-medium mb-2 text-gray-800">العنوان</label>
+            <input id="title" type="text" placeholder="مثال: سلك نحاسي نظيف" required
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+          </div>
+
+          <!-- نوع الخردة -->
+          <div>
+            <label for="scrapType" class="block text-sm font-medium mb-2 text-gray-800">نوع الخردة</label>
+            <select id="scrapType"
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+              <option value="">اختر نوع الخردة</option>
+              <option value="metal">معادن</option>
+              <option value="electronics">إلكترونيات</option>
+              <option value="batteries">بطاريات</option>
+              <option value="automotive">سيارات</option>
+            </select>
+          </div>
+
+          <!-- الأنواع الفرعية للمعادن -->
+          <div id="metalTypesContainer" class="hidden">
+            <label for="metalType" class="block text-sm font-medium mb-2 text-gray-800">نوع المعدن</label>
+            <select id="metalType"
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+              <option value="">اختر نوع المعدن</option>
+              <option value="copper">نحاس</option>
+              <option value="iron">حديد</option>
+              <option value="aluminum">ألمنيوم</option>
+              <option value="steel">فولاذ</option>
+              <option value="brass">نحاس أصفر</option>
+              <option value="silver">فضة</option>
+              <option value="other">أخرى</option>
+            </select>
+          </div>
+
+          <!-- السعر -->
+          <div>
+            <label for="price" class="block text-sm font-medium mb-2 text-gray-800">السعر (دج)</label>
+            <input id="price" type="number" placeholder="مثال: 3200" required
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+          </div>
+
+          <!-- الموقع -->
+          <div>
+            <label for="location" class="block text-sm font-medium mb-2 text-gray-800">الموقع</label>
+            <input id="location" type="text" placeholder="المدينة أو الرمز البريدي"
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+          </div>
+
+          <!-- رقم الهاتف -->
+          <div>
+            <label for="phone" class="block text-sm font-medium mb-2 text-gray-800">رقم الهاتف</label>
+            <input id="phone" type="tel" placeholder="مثال: 0555 12 34 56" required
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+          </div>
+
+          <!-- الوصف -->
+          <div>
+            <label for="description" class="block text-sm font-medium mb-2 text-gray-800">الوصف</label>
+            <textarea id="description" rows="4" placeholder="صف حالة الخردة أو الملاحظات..." required
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none"></textarea>
+          </div>
+
+          <!-- الصور -->
+          <div>
+            <label for="photo" class="block text-sm font-medium mb-2 text-gray-800">صور المنتج (حتى 4 صور)</label>
+            <input id="photo" type="file" accept="image/*" multiple
+              class="w-full bg-white border border-border rounded-lg px-4 py-2 focus:outline-none">
+            <p class="text-xs text-gray-500 mt-2">يفضل صور واضحة بزوايا مختلفة.</p>
+          </div>
+
+          <!-- الأزرار -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <button id="submitBtn" type="submit"
+              class="flex-1 bg-secondary hover:bg-yellow-400 text-gray-900 font-bold py-3 rounded-lg transition duration-200 shadow hover:scale-105">
+              📤 عرض للبيع
+            </button>
+            <button type="button" id="saveDraftBtn"
+              class="px-6 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 rounded-lg transition duration-200 border border-border shadow-sm">
+              💾 حفظ كمسودة
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script>
+    feather.replace();
+
+    // إظهار قائمة المعادن عند اختيار "معادن"
+    const scrapType = document.getElementById('scrapType');
+    const metalContainer = document.getElementById('metalTypesContainer');
+
+    scrapType.addEventListener('change', () => {
+      if (scrapType.value === 'metal') {
+        metalContainer.classList.remove('hidden');
+      } else {
+        metalContainer.classList.add('hidden');
+      }
+    });
+  </script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

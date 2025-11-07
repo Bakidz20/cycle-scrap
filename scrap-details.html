@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrap Details | ScrapCycle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a1a1a',
+              secondary: '#dc2626',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Back button -->
+        <a href="/buy.html" class="flex items-center text-secondary mb-6">
+          <i data-feather="arrow-left" class="w-5 h-5 mr-2"></i>
+          Back to listings
+        </a>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Images -->
+          <div>
+            <div class="bg-gray-800 rounded-lg overflow-hidden mb-4">
+              <img src="http://static.photos/industry/1200x630/1" alt="Copper scrap" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="grid grid-cols-4 gap-2">
+              <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="http://static.photos/industry/200x200/1" alt="Copper scrap 1" class="w-full h-20 object-cover">
+              </div>
+              <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="http://static.photos/industry/200x200/2" alt="Copper scrap 2" class="w-full h-20 object-cover">
+              </div>
+              <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="http://static.photos/industry/200x200/3" alt="Copper scrap 3" class="w-full h-20 object-cover">
+              </div>
+              <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="http://static.photos/industry/200x200/4" alt="Copper scrap 4" class="w-full h-20 object-cover">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Details -->
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h1 class="text-3xl font-bold">Copper Wire Scrap</h1>
+              <span class="text-secondary text-2xl font-bold">$3.20/lb</span>
+            </div>
+            
+            <div class="flex items-center text-gray-400 mb-6">
+              <i data-feather="map-pin" class="w-4 h-4 mr-1"></i>
+              <span>Portland, OR • 5 miles away</span>
+            </div>
+            
+            <div class="bg-gray-800 rounded-lg p-6 mb-6">
+              <h2 class="text-xl font-bold mb-4">Description</h2>
+              <p class="text-gray-400 mb-6">High quality copper wire scrap, 1000+ lbs available. Clean and ready for processing. This is bare bright copper wire with no insulation or contamination. Ideal for recycling or repurposing.</p>
+              
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                  <h3 class="font-medium mb-1">Quantity</h3>
+                  <p class="text-gray-400">1000 lbs</p>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-1">Condition</h3>
+                  <p class="text-gray-400">Excellent</p>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-1">Material</h3>
+                  <p class="text-gray-400">Copper</p>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-1">Type</h3>
+                  <p class="text-gray-400">Bare Bright Wire</p>
+                </div>
+              </div>
+              
+              <div class="border-t border-gray-700 pt-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span>Available until:</span>
+                  <span>June 30, 2023</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>Seller rating:</span>
+                  <div class="flex text-yellow-400">
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button class="flex-1 bg-secondary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+                <i data-feather="message-square"></i> Contact Seller
+              </button>
+              <button class="flex-1 bg-white hover:bg-gray-200 text-black font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+                <i data-feather="shopping-cart"></i> Buy Now
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Seller Info -->
+        <div class="mt-12 bg-gray-800 rounded-lg p-6">
+          <h2 class="text-2xl font-bold mb-6">Seller Information</h2>
+          
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center">
+                <span class="text-xl font-bold">JD</span>
+              </div>
+              <div>
+                <h3 class="font-bold">John D.</h3>
+                <p class="text-gray-400 text-sm">Member since 2021</p>
+              </div>
+            </div>
+            
+            <div class="flex-1">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <h4 class="text-sm text-gray-400">Response Rate</h4>
+                  <p class="font-medium">98%</p>
+                </div>
+                <div>
+                  <h4 class="text-sm text-gray-400">Response Time</h4>
+                  <p class="font-medium">Within an hour</p>
+                </div>
+                <div>
+                  <h4 class="text-sm text-gray-400">Completed Sales</h4>
+                  <p class="font-medium">42</p>
+                </div>
+              </div>
+            </div>
+            
+            <button class="bg-secondary hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2 h-fit">
+              <i data-feather="message-square"></i> Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+</body>
+</html>

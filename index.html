@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>موقع البناء — الصفحة الرئيسية</title>
+
+  <!-- الخطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- أيقونات FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- التنسيقات -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="antialiased" style="font-family: 'Cairo', sans-serif;">
+
+
+<custom-navbar></custom-navbar>
+<script type="module" src="components/navbar.js"></script>
+
+
+<!-- القسم الرئيسي -->
+<section class="hero">
+  <div class="slides">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1536094627107-abf98dedaa8f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1249')">
+      <div class="hero-inner container">
+        <div class="hero-left">
+          <span class="badge"><i class="fas fa-clock"></i> عرض لفترة محدودة</span>
+
+          <div class="hero-pill">
+            <h1>ابنِ بإبداع</h1>
+            <p>الريادة في مجال البناء والتشييد</p>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="#" class="btn-primary">ابدأ مشروعًا جديدًا</a>
+            <a href="#" class="btn-outline">عرض المشاريع</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('https://images.pexels.com/photos/128421/pexels-photo-128421.jpeg')">
+      <div class="hero-inner container">
+        <div class="hero-left">
+          <span class="badge"><i class="fas fa-star"></i> موثوق</span>
+          <div class="hero-pill">
+            <h1>جودة في التنفيذ</h1>
+            <p>نقدّم الأفضل في كل مشروع نقوم به</p>
+          </div>
+          <div class="hero-ctas">
+            <a href="#" class="btn-primary">احصل على عرض سعر</a>
+            <a href="#" class="btn-outline">خدماتنا</a>
+          </div>
+        </div>
+        <div class="hero-right">
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('https://i.guim.co.uk/img/media/21262f1ad57bbd7c4b06ee12e53241e732db258e/569_497_2492_1495/master/2492.jpg?width=1900&dpr=1&s=none&crop=none')">
+      <div class="hero-inner container">
+        <div class="hero-left">
+          <span class="badge"><i class="fas fa-tools"></i> احترافية عالية</span>
+          <div class="hero-pill">
+            <h1>خدمات احترافية</h1>
+            <p>شريكك الموثوق في حلول البناء</p>
+          </div>
+          <div class="hero-ctas">
+            <a href="#" class="btn-primary">تواصل معنا</a>
+            <a href="#" class="btn-outline">عرض المشاريع</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- الأسهم -->
+  <button class="arrow prev" id="prevBtn" aria-label="السابق"><i class="fas fa-chevron-right"></i></button>
+  <button class="arrow next" id="nextBtn" aria-label="التالي"><i class="fas fa-chevron-left"></i></button>
+
+  <div class="indicators" id="indicators"></div>
+</section>
+
+<!-- الإعلانات المميزة -->
+<section class="featured-listings container">
+  <h2 class="section-title">الإعلانات المميزة</h2>
+
+  <div class="listings-scroll">
+    <p>جاري تحميل الإعلانات...</p>
+  </div>
+</section>
+
+<!-- المميزات -->
+<main class="container main-content">
+  <section class="features">
+    <div class="grid">
+      <div class="feature-card">
+        <div class="icon-wrap"><i class="fas fa-toolbox"></i></div>
+        <h3>جودة عالية في العمل</h3>
+        <p>فِرق عمل محترفة ومعدات حديثة.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-wrap"><i class="fas fa-shield-alt"></i></div>
+        <h3>السلامة أولاً</h3>
+        <p>نلتزم بأعلى معايير الأمان في مشاريعنا.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon-wrap"><i class="fas fa-clock"></i></div>
+        <h3>الالتزام بالمواعيد</h3>
+        <p>نُسلّم المشاريع في الوقت المحدد.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ملفات تعريف الارتباط -->
+<div class="cookie" id="cookie">
+  <div class="cookie-icon">🍪</div>
+  <div class="cookie-body">
+    <p>نستخدم ملفات تعريف الارتباط لتحسين تجربتك على الموقع.</p>
+    <div class="cookie-actions">
+      <button class="btn-accept" id="acceptCookie">موافق</button>
+    </div>
+  </div>
+</div>
+
+<!-- الفوتر -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2025 موقع البناء. جميع الحقوق محفوظة.</div>
+    <div class="footer-links">
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">اتصل بنا</a>
+    </div>
+  </div>
+</footer>
+
+<!-- سكربتات -->
+<script>
+  // القائمة الجانبية
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+  mobileToggle?.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+    mobileToggle.querySelector('i').classList.toggle('fa-bars');
+    mobileToggle.querySelector('i').classList.toggle('fa-times');
+  });
+
+  // السلايدر
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const indicatorsWrap = document.getElementById('indicators');
+  let index = 0;
+  let interval;
+
+  function createIndicators() {
+    slides.forEach((s, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i===0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'انتقل إلى الشريحة ' + (i+1));
+      dot.addEventListener('click', () => goTo(i));
+      indicatorsWrap.appendChild(dot);
+    });
+  }
+
+  function show(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[n].classList.add('active');
+    document.querySelectorAll('.dot').forEach((d,i)=> {
+      d.classList.toggle('active', i===n);
+    });
+  }
+
+  function next() { index = (index+1) % slides.length; show(index); }
+  function prev() { index = (index-1 + slides.length) % slides.length; show(index); }
+  function goTo(n) { index = n; show(index); restart(); }
+
+  prevBtn?.addEventListener('click', () => { prev(); restart(); });
+  nextBtn?.addEventListener('click', () => { next(); restart(); });
+
+  function start() { interval = setInterval(next, 5000); }
+  function restart() { clearInterval(interval); start(); }
+
+  createIndicators();
+  start();
+
+  // الكوكيز
+  document.getElementById('acceptCookie')?.addEventListener('click', () => {
+    document.getElementById('cookie').style.display = 'none';
+  });
+</script>
+
+<!-- Firebase -->
+<script type="module">
+  import { db, getDocs, collection } from "./firebase.js";
+
+  async function loadListings() {
+    const listingsContainer = document.querySelector(".listings-scroll");
+    listingsContainer.innerHTML = "<p>جاري تحميل الإعلانات...</p>";
+
+    try {
+      const querySnapshot = await getDocs(collection(db, "listings"));
+      listingsContainer.innerHTML = "";
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const image = (data.images && data.images.length > 0)
+          ? data.images[0]
+          : "https://via.placeholder.com/400x300?text=No+Image";
+
+        const title = data.title || "إعلان بدون عنوان";
+        const price = data.price
+          ? new Intl.NumberFormat('ar-DZ', { style: 'currency', currency: 'DZD' }).format(data.price)
+          : "السوم";
+
+        const listing = document.createElement("div");
+        listing.className = "listing-mini";
+        listing.innerHTML = `
+          <img src="${image}" alt="${title}" style="object-fit: cover;">
+          <div class="info">
+            <h4>${title}</h4>
+            <p class="price">${price}</p>
+            <button class="btn-buy" onclick="window.location.href='buy.html?id=${doc.id}'">اشترِ الآن</button>
+          </div>
+        `;
+        listingsContainer.appendChild(listing);
+      });
+
+      if (listingsContainer.innerHTML.trim() === "") {
+        listingsContainer.innerHTML = "<p>لا توجد إعلانات حالياً.</p>";
+      }
+
+    } catch (error) {
+      console.error("❌ خطأ أثناء جلب الإعلانات:", error);
+      listingsContainer.innerHTML = "<p>حدث خطأ أثناء تحميل الإعلانات.</p>";
+    }
+  }
+
+  loadListings();
+</script>
+
+</body>
+</html>

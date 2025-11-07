@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تعديل الإعلان | ScrapCycle</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #fafafa;
+      color: #222;
+    }
+
+    .btn-primary {
+      background-color: #ffc107;
+      color: #000;
+      padding: 0.6rem 1.3rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 0 8px rgba(255, 193, 7, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: #ffb300;
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+      transform: scale(1.05);
+    }
+
+    input, textarea {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      width: 100%;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #ffc107;
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <custom-navbar></custom-navbar>
+
+  <!-- ✅ المحتوى -->
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">✏️ تعديل الإعلان</h1>
+
+    <form id="editForm" class="bg-white p-6 rounded-xl shadow-md space-y-5">
+      <div>
+        <label class="block mb-2 font-semibold">عنوان الإعلان</label>
+        <input type="text" id="title" required />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold">الوصف</label>
+        <textarea id="description" rows="4" required></textarea>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-2 font-semibold">الموقع</label>
+          <input type="text" id="location" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">السعر (دج)</label>
+          <input type="number" id="price" required />
+        </div>
+      </div>
+
+      <!-- ✅ رقم الهاتف -->
+      <div>
+        <label class="block mb-2 font-semibold">رقم الهاتف</label>
+        <input type="tel" id="phone" placeholder="مثلاً: 0550xxxxxx" required />
+      </div>
+
+      <div>
+        <label class="block mb-2 font-semibold">صورة جديدة (اختياري)</label>
+        <input type="file" id="imageUpload" accept="image/*" />
+        <img id="previewImage" class="mt-3 w-full h-48 object-cover rounded-lg hidden" />
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn-primary text-lg">💾 حفظ التعديلات</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- ✅ Footer -->
+  <custom-footer></custom-footer>
+
+  <!-- Firebase + Script -->
+  <script type="module" src="./edit-listing.js"></script>
+</body>
+</html>
