@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ScrapCycle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a1a1a',
+              secondary: '#dc2626',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+      <div class="w-full max-w-md bg-gray-800 rounded-xl p-8 shadow-lg">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-bold mb-2">Welcome Back</h1>
+          <p class="text-gray-400">Login to access your ScrapCycle account</p>
+        </div>
+        
+        <form class="space-y-6">
+          <div>
+            <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+            <div class="relative">
+              <input type="email" id="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="you@example.com" required>
+              <i data-feather="mail" class="absolute right-3 top-3 text-gray-400"></i>
+            </div>
+          </div>
+          
+          <div>
+            <label for="password" class="block text-sm font-medium mb-2">Password</label>
+            <div class="relative">
+              <input type="password" id="password" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:ring-2 focus:ring-secondary focus:border-transparent" placeholder="••••••••" required>
+              <i data-feather="lock" class="absolute right-3 top-3 text-gray-400"></i>
+            </div>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input id="remember" type="checkbox" class="h-4 w-4 text-secondary focus:ring-secondary border-gray-600 rounded bg-gray-700">
+              <label for="remember" class="ml-2 block text-sm text-gray-300">Remember me</label>
+            </div>
+            <a href="/forgot-password.html" class="text-sm text-secondary hover:underline">Forgot password?</a>
+          </div>
+          
+          <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+            <i data-feather="log-in"></i> Login
+          </button>
+        </form>
+        
+        <div class="mt-6 text-center">
+          <p class="text-gray-400">Don't have an account? <a href="/register.html" class="text-secondary hover:underline">Register here</a></p>
+        </div>
+      </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+    <script type="module" src="firebase.js"></script>
+<script type="module" src="login.js"></script>
+<script type="module" src="/firebase.js"></script>
+<script type="module" src="/components/navbar.js"></script>
+
+</body>
+</html>

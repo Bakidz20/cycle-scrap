@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sell Scrap | ScrapCycle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#1a1a1a', secondary: '#dc2626' } } }
+    }
+  </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  <custom-navbar></custom-navbar>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold mb-2">🔧 أضف إعلان خردة</h1>
+        <p class="text-gray-400">املأ التفاصيل، ارفع صورًا، واضغط "عرض للبيع" ليتم نشر الإعلان.</p>
+      </div>
+
+      <div class="bg-gray-800 rounded-xl p-6">
+        <form id="listForm" class="space-y-5">
+          <!-- Category (radio kept simple) -->
+          <div>
+            <label class="block text-sm font-medium mb-2">نوع الخردة</label>
+            <div class="flex gap-3">
+              <label class="flex items-center gap-2 bg-gray-700 px-3 py-2 rounded cursor-pointer">
+                <input type="radio" name="scrap-type" value="metal" class="accent-red-500">
+                <span>Metal</span>
+              </label>
+              <label class="flex items-center gap-2 bg-gray-700 px-3 py-2 rounded cursor-pointer">
+                <input type="radio" name="scrap-type" value="electronics" class="accent-red-500">
+                <span>Electronics</span>
+              </label>
+              <label class="flex items-center gap-2 bg-gray-700 px-3 py-2 rounded cursor-pointer">
+                <input type="radio" name="scrap-type" value="batteries" class="accent-red-500">
+                <span>Batteries</span>
+              </label>
+              <label class="flex items-center gap-2 bg-gray-700 px-3 py-2 rounded cursor-pointer">
+                <input type="radio" name="scrap-type" value="automotive" class="accent-red-500">
+                <span>Automotive</span>
+              </label>
+            <div>
+           </div>
+          </div>
+
+          <div>
+            <label for="title" class="block text-sm font-medium mb-2">العنوان</label>
+            <input id="title" type="text" placeholder="مثال: سلك نحاسي نظيف" required
+              class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="price" class="block text-sm font-medium mb-2">السعر</label>
+              <input id="price" type="number" placeholder="3.20" required
+                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent">
+            </div>
+            <div>
+              <label for="quantity" class="block text-sm font-medium mb-2">الكمية</label>
+              <input id="quantity" type="number" placeholder="1000" required
+                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent">
+            </div>
+          </div>
+
+          <div>
+            <label for="location" class="block text-sm font-medium mb-2">الموقع</label>
+            <input id="location" type="text" placeholder="المدينة أو الرمز البريدي"
+              class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent">
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium mb-2">رقم الهاتف</label>
+             <input id="phone" type="tel" placeholder="مثال: 0555 12 34 56" required
+             class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent">
+         </div>
+          <div>
+            <label for="description" class="block text-sm font-medium mb-2">الوصف</label>
+            <textarea id="description" rows="4" placeholder="صف حالة الخردة، ملاحظات..." required
+              class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent"></textarea>
+          </div>
+
+          <div>
+            <label for="photo" class="block text-sm font-medium mb-2">صور المنتج (حتى 4 صور)</label>
+            <input id="photo" type="file" accept="image/*" multiple
+              class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-secondary focus:border-transparent">
+            <p class="text-xs text-gray-400 mt-2">يفضل صور واضحة بزوايا مختلفة.</p>
+          </div>
+
+          <div class="flex gap-4">
+            <button id="submitBtn" type="submit"
+              class="flex-1 bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition duration-200">
+              📤 عرض للبيع
+            </button>
+            <button type="button" id="saveDraftBtn"
+              class="px-6 bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 rounded-lg transition duration-200">
+              💾 حفظ كمسودة
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <!-- سكربت المشروع -->
+  <script type="module" src="./script.js"></script>
+
+  <script>
+    // icons
+    feather.replace();
+  </script>
+</body>
+</html>

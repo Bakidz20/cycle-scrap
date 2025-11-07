@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>تفاصيل الإعلان | ScrapCycle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#1a1a1a', secondary: '#dc2626' } } }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  <custom-navbar></custom-navbar>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div id="listingDetails" class="max-w-4xl mx-auto bg-gray-800 rounded-2xl shadow-xl p-6">
+      <p class="text-center text-gray-400">⏳ جاري تحميل تفاصيل الإعلان...</p>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script type="module">
+    import { db } from "./firebase.js";
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const listingContainer = document.getElementById("listingDetails");
+
+    // استخراج ID من الرابط
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!id) {
+      listingContainer.innerHTML = "<p class='text-center text-red-400'>⚠️ لا يوجد إعلان بهذا المعرف.</p>";
+    } else {
+      loadListingDetails(id);
+    }
+
+    async function loadListingDetails(id) {
+      try {
+        const docRef = doc(db, "listings", id);
+        const docSnap = await getDoc(docRef);
+
+        if (!docSnap.exists()) {
+          listingContainer.innerHTML = "<p class='text-center text-red-400'>❌ الإعلان غير موجود.</p>";
+          return;
+        }
+
+        const data = docSnap.data();
+
+        // الصور
+        const imagesHtml = data.images?.length
+          ? data.images.map(url => `<img src="${url}" class="w-full rounded-xl shadow mb-4 object-cover">`).join("")
+          : `<img src="https://via.placeholder.com/600x400?text=No+Image" class="w-full rounded-xl mb-4">`;
+
+        listingContainer.innerHTML = `
+          <div class="space-y-4">
+            ${imagesHtml}
+            <h1 class="text-3xl font-bold">${data.title}</h1>
+            <p class="text-gray-300 text-lg">${data.description}</p>
+            <p class="text-gray-300"><strong> السعر:</strong> ${data.price} دج</p>
+            <p class="text-gray-300"><strong> الكمية:</strong> ${data.quantity}</p>
+            <p class="text-gray-300"><strong> الموقع:</strong> ${data.location}</p>
+            <p class="text-gray-300"><strong> النوع:</strong> ${data.scrapType}</p>
+            <p class="text-gray-300"><strong> رقم الهاتف :</strong> ${data.phone}</p>
+          </div>
+          <div class="mt-6 text-center">
+            <a href="listings.html" class="bg-secondary px-6 py-3 rounded-lg font-bold hover:bg-red-700">⬅ العودة إلى الإعلانات</a>
+          </div>
+        `;
+      } catch (error) {
+        console.error("❌ خطأ أثناء تحميل تفاصيل الإعلان:", error);
+        listingContainer.innerHTML = "<p class='text-center text-red-400'>⚠️ حدث خطأ أثناء تحميل التفاصيل.</p>";
+      }
+    }
+  </script>
+</body>
+</html>

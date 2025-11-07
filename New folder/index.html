@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScrapCycle - Buy & Sell Scrap Metal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a1a1a',
+              secondary: '#dc2626',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-r from-primary to-black rounded-xl overflow-hidden mb-12">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 text-center">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6">Turn Scrap Into Cash</h1>
+          <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Buy and sell scrap metal with ease. Connect with local scrap dealers instantly.</p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/sell.html" class="bg-secondary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+              <i data-feather="dollar-sign"></i> Sell Scrap
+            </a>
+            <a href="/buy.html" class="bg-white hover:bg-gray-200 text-black font-bold py-3 px-6 rounded-lg transition duration-200 flex items-center justify-center gap-2">
+              <i data-feather="shopping-cart"></i> Buy Scrap
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-8 text-center">Why Choose ScrapCycle?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="text-secondary mb-4">
+              <i data-feather="clock" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Fast Transactions</h3>
+            <p class="text-gray-400">List your scrap or find what you need in minutes with our streamlined platform.</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="text-secondary mb-4">
+              <i data-feather="shield" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Verified Dealers</h3>
+            <p class="text-gray-400">All dealers are verified to ensure safe and reliable transactions.</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="text-secondary mb-4">
+              <i data-feather="map-pin" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Local Network</h3>
+            <p class="text-gray-400">Connect with scrap dealers and buyers in your local area.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Categories -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-8 text-center">Popular Scrap Categories</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-4 rounded-lg transition duration-200 flex flex-col items-center">
+            <div class="bg-primary p-3 rounded-full mb-3">
+              <i data-feather="cpu" class="w-6 h-6"></i>
+            </div>
+            <span class="font-medium">Electronics</span>
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-4 rounded-lg transition duration-200 flex flex-col items-center">
+            <div class="bg-primary p-3 rounded-full mb-3">
+              <i data-feather="tool" class="w-6 h-6"></i>
+            </div>
+            <span class="font-medium">Metal</span>
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-4 rounded-lg transition duration-200 flex flex-col items-center">
+            <div class="bg-primary p-3 rounded-full mb-3">
+              <i data-feather="battery" class="w-6 h-6"></i>
+            </div>
+            <span class="font-medium">Batteries</span>
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-700 p-4 rounded-lg transition duration-200 flex flex-col items-center">
+            <div class="bg-primary p-3 rounded-full mb-3">
+              <i data-feather="truck" class="w-6 h-6"></i>
+            </div>
+            <span class="font-medium">Automotive</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-8 text-center">What Our Users Say</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mr-4">
+                <span class="text-xl font-bold">JD</span>
+              </div>
+              <div>
+                <h4 class="font-bold">John D.</h4>
+                <div class="flex text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-400">"I've been able to clear out my garage and make over $500 in just a month. The platform is so easy to use!"</p>
+          </div>
+          <div class="bg-gray-800 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mr-4">
+                <span class="text-xl font-bold">SM</span>
+              </div>
+              <div>
+                <h4 class="font-bold">Sarah M.</h4>
+                <div class="flex text-yellow-400">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-400">"As a small metal fabrication business, ScrapCycle has saved me thousands on materials. Highly recommend!"</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <!-- Scripts -->
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+      feather.replace();
+    </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+<script type="module" src="/firebase.js"></script>
+<script type="module" src="/components/navbar.js"></script>
+
+</body>
+</html>

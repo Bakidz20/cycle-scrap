@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Listings | ScrapCycle</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#1a1a1a', secondary: '#dc2626' } } }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+  <custom-navbar></custom-navbar>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold">🧩 إعلانات الخردة المتوفرة</h1>
+        <p class="text-gray-400">كل الإعلانات التي تمت إضافتها حديثًا</p>
+      </div>
+
+      <div id="listingsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>feather.replace();</script>
+
+  <!-- ✅ سكربت تحميل الإعلانات -->
+<script type="module">
+  import { db } from "./firebase.js";
+  import {
+    collection,
+    getDocs,
+    orderBy,
+    query
+  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+  const listingsContainer = document.getElementById("listingsContainer");
+
+  async function loadListings() {
+    listingsContainer.innerHTML = "<p class='text-center text-gray-400'>⏳ جاري تحميل الإعلانات...</p>";
+
+    try {
+      const q = query(collection(db, "listings"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(q);
+
+      listingsContainer.innerHTML = "";
+
+      if (querySnapshot.empty) {
+        listingsContainer.innerHTML = "<p class='text-center text-gray-400'>❌ لا توجد إعلانات بعد.</p>";
+        return;
+      }
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const imageUrl = data.images?.[0] || "https://via.placeholder.com/400x300?text=No+Image";
+
+        const card = document.createElement("div");
+        card.className =
+          "bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:scale-105 cursor-pointer transition-transform duration-200";
+        card.innerHTML = `
+          <img src="${imageUrl}" alt="${data.title}" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h2 class="text-xl font-bold mb-2">${data.title}</h2>
+            <p class="text-gray-400 text-sm mb-2">${data.description.slice(0, 60)}...</p>
+            <p class="text-gray-300"><strong>💰 السعر:</strong> ${data.price} دج</p>
+            <p class="text-gray-300"><strong>📍 الموقع:</strong> ${data.location}</p>
+          </div>
+        `;
+
+        // 👇 عند الضغط، انتقل إلى صفحة التفاصيل
+        card.addEventListener("click", () => {
+          window.location.href = `listing-details.html?id=${doc.id}`;
+        });
+
+        listingsContainer.appendChild(card);
+      });
+    } catch (error) {
+      console.error("❌ حدث خطأ أثناء تحميل الإعلانات:", error);
+      listingsContainer.innerHTML = "<p class='text-center text-red-400'>⚠️ حدث خطأ أثناء تحميل الإعلانات.</p>";
+    }
+  }
+
+  loadListings();
+</script>
+</body>
+</html>
